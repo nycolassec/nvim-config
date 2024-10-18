@@ -105,10 +105,14 @@ call plug#end()
 
 " ALE """"""""""
 let g:ale_linters = {
+\   'cpp':[],
+\   'c':[],
 \}
 
 let g:ale_fixers = {
 \   '*': ['trim_whitespace'],
+\   'cpp': ['clang-format'],
+\   'c': ['clang-format'],
 \}
 
 let g:ale_fix_on_save = 1
@@ -153,7 +157,7 @@ let g:airline_powerline_fonts = 1
 
 
 " COC """"""""""
-let g:coc_global_extensions = ['coc-snippets', 'coc-explorer', 'coc-pairs',]
+let g:coc_global_extensions = ['coc-snippets', 'coc-explorer', 'coc-pairs', 'coc-clangd',]
 " COC """"""""""
 
 " Coc Snippets """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -247,7 +251,16 @@ nnoremap <space>eb :CocCommand explorer --preset buffer<CR>
 nnoremap <space>el :CocList explPresets
 
 
-
+" C/C++ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_c_clangformat_options = '"-style={
+\ BasedOnStyle: google,
+\ IndentWidth: 4,
+\ ColumnLimit: 100,
+\ AllowShortBlocksOnASingleLine: Always,
+\ AllowShortFunctionsOnASingleLine: Inline,
+\ FixNamespaceComments: true,
+\ ReflowComments: false,
+\ }"'
 
 
 
