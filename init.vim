@@ -30,7 +30,7 @@ filetype indent on   " Load the indent file for the file type, if any
 
 
 " Remaps """"""""""
-  nmap <C-a> :NERDTreeToggle<CR>
+  nmap <space>ee :NERDTreeToggle<CR>
 
   " Shortcuts for split navigation
     map <C-h> <C-w>h
@@ -94,7 +94,7 @@ call plug#begin()
     Plug 'Xuyuanp/nerdtree-git-plugin'
 
     Plug 'dense-analysis/ale'
-    Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+    "Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
     Plug 'honza/vim-snippets'
 
     Plug 'nvim-lua/plenary.nvim'
@@ -157,98 +157,98 @@ let g:airline_powerline_fonts = 1
 
 
 " COC """"""""""
-let g:coc_global_extensions = ['coc-snippets', 'coc-explorer', 'coc-pairs', 'coc-clangd',]
+"let g:coc_global_extensions = ['coc-snippets', 'coc-explorer', 'coc-pairs', 'coc-clangd',]
 " COC """"""""""
 
 " Coc Snippets """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
+"imap <C-l> <Plug>(coc-snippets-expand)
 
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+"vmap <C-j> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
+"let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+"let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+"imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
+"xmap <leader>x  <Plug>(coc-convert-snippet)
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? coc#_select_confirm() :
+"      \ coc#expandableOrJumpable() ? " " \<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"      \ <SID>check_back_space() ? " "\<TAB>" :
+"      \ coc#refresh()
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
-let g:coc_snippet_next = '<tab>'
+"let g:coc_snippet_next = '<tab>'
 " Coc Snippets """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Coc Explorer """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:nnoremap <space>e :CocCommand explorer<CR>
+":nnoremap <space>e :CocCommand explorer<CR>
 
-let g:coc_explorer_global_presets = {
-\   '.vim': {
-\     'root-uri': '~/.vim',
-\   },
-\   'cocConfig': {
-\      'root-uri': '~/.config/coc',
-\   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'tab:$': {
-\     'position': 'tab:$',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingTop': {
-\     'position': 'floating',
-\     'floating-position': 'center-top',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingLeftside': {
-\     'position': 'floating',
-\     'floating-position': 'left-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingRightside': {
-\     'position': 'floating',
-\     'floating-position': 'right-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   },
-\   'buffer': {
-\     'sources': [{'name': 'buffer', 'expand': v:true}]
-\   },
-\ }
+"let g:coc_explorer_global_presets = {
+"\   '.vim': {
+"\     'root-uri': '~/.vim',
+"\   },
+"\   'cocConfig': {
+"\      'root-uri': '~/.config/coc',
+"\   },
+"\   'tab': {
+"\     'position': 'tab',
+"\     'quit-on-open': v:true,
+"\   },
+"\   'tab:$': {
+"\     'position': 'tab:$',
+"\     'quit-on-open': v:true,
+"\   },
+"\   'floating': {
+"\     'position': 'floating',
+"\     'open-action-strategy': 'sourceWindow',
+"\   },
+"\   'floatingTop': {
+"\     'position': 'floating',
+"\     'floating-position': 'center-top',
+"\     'open-action-strategy': 'sourceWindow',
+"\   },
+"\   'floatingLeftside': {
+"\     'position': 'floating',
+"\     'floating-position': 'left-center',
+"\     'floating-width': 50,
+"\     'open-action-strategy': 'sourceWindow',
+"\   },
+"\   'floatingRightside': {
+"\     'position': 'floating',
+"\     'floating-position': 'right-center',
+"\     'floating-width': 50,
+"\     'open-action-strategy': 'sourceWindow',
+"\   },
+"\   'simplify': {
+"\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+"\   },
+"\   'buffer': {
+"\     'sources': [{'name': 'buffer', 'expand': v:true}]
+"\   },
+"\ }
 
 " Use preset argument to open it
-nnoremap <space>ed :CocCommand explorer --preset .vim<CR>
-nnoremap <space>ef :CocCommand explorer --preset floating<CR>
-nnoremap <space>ec :CocCommand explorer --preset cocConfig<CR>
-nnoremap <space>eb :CocCommand explorer --preset buffer<CR>
+"nnoremap <space>ed :CocCommand explorer --preset .vim<CR>
+"nnoremap <space>ef :CocCommand explorer --preset floating<CR>
+"nnoremap <space>ec :CocCommand explorer --preset cocConfig<CR>
+"nnoremap <space>eb :CocCommand explorer --preset buffer<CR>
 
 " List all presets
-nnoremap <space>el :CocList explPresets
+"nnoremap <space>el :CocList explPresets
 
 
 " C/C++ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
