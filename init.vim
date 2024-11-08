@@ -82,9 +82,11 @@ autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 " Plug Plugins """"""""""
 call plug#begin()
     Plug 'sainnhe/sonokai'
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'prisma/vim-prisma'
 
     Plug 'ryanoasis/vim-devicons'
     Plug 'sheerun/vim-polyglot'
@@ -134,14 +136,15 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-let g:airline_theme = 'sonokai'
+"let g:airline_theme = 'sonokai'
+"let g:sonokai_style = 'andromeda'
+"let g:sonokai_enable_italic = 1
+"let g:sonokai_disable_italic_comment = 0
+"let g:sonokai_diagnostic_line_highlight = 1
+"let g:sonokai_current_word = 'bold'
+"colorscheme sonokai
 
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 0
-let g:sonokai_diagnostic_line_highlight = 1
-let g:sonokai_current_word = 'bold'
-colorscheme sonokai
+colorscheme catppuccin-macchiato " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 
 if (has("nvim")) "Transparent background. Only for nvim
     highlight Normal guibg=NONE ctermbg=NONE
