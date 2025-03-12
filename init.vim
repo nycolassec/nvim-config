@@ -1,6 +1,7 @@
 " Global Sets """"""""""
 syntax on            " Enable syntax highlight
-set nu               " Enable line numbers
+set number           " Enable line numbers
+set relativenumber   " Show relative numbers
 set tabstop=4        " Show existing tab with 4 spaces width
 set softtabstop=4    " Show existing tab with 4 spaces width
 set shiftwidth=4     " When indenting with '>', use 4 spaces width
@@ -11,7 +12,7 @@ set hidden           " Hides the current buffer when a new file is openned
 set incsearch        " Incremental search
 set ignorecase       " Ingore case in search
 set smartcase        " Consider case if there is a upper case character
-set scrolloff=8      " Minimum number of lines to keep above and below the cursor
+set scrolloff=12      " Minimum number of lines to keep above and below the cursor
 set colorcolumn=100  " Draws a line at the given line to keep aware of the line size
 set signcolumn=yes   " Add a column on the left. Useful for linting
 set cmdheight=2      " Give more space for displaying messages
@@ -26,6 +27,13 @@ set mouse=a          " Enable mouse support
 filetype on          " Detect and set the filetype option and trigger the FileType Event
 filetype plugin on   " Load the plugin file for the file type, if any
 filetype indent on   " Load the indent file for the file type, if any
+set hlsearch          " Hilight search
+
+let NERDTreeQuitOnOpen=1 " Hidden NERDTREE when open a file
+let NERDTreeShowHidden=1 "Show hidden files
+
+let mapleader = '\'
+let g:airline_theme = 'violet'
 " Global Sets """"""""""
 
 
@@ -81,12 +89,10 @@ autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
 " Plug Plugins """"""""""
 call plug#begin()
-    Plug 'sainnhe/sonokai'
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'prisma/vim-prisma'
 
     Plug 'ryanoasis/vim-devicons'
     Plug 'sheerun/vim-polyglot'
@@ -122,10 +128,12 @@ let g:ale_fix_on_save = 1
 
 
 " Telescope """"""""""
-    nnoremap <leader>ff <cmd>Telescope find_files<cr>
-    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-    nnoremap <leader>fb <cmd>Telescope buffers<cr>
-    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+if (has("nvim"))
+      nnoremap <leader>ff <cmd>Telescope find_files<cr>
+      nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+      nnoremap <leader>fb <cmd>Telescope buffers<cr>
+      nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+endif
 " Telescope """"""""""
 
 
